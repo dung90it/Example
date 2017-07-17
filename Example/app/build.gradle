@@ -9,6 +9,7 @@ android {
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -16,6 +17,11 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+    packagingOptions {
+        pickFirst 'META-INF/INDEX.LIST'
+        pickFirst 'META-INF/LICENSE'
+        pickFirst 'META-INF/io.netty.versions.properties'
     }
 }
 
@@ -27,4 +33,10 @@ dependencies {
     compile 'com.android.support:appcompat-v7:26.+'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
+    compile 'com.android.support:multidex:1.0.1'
+    compile 'io.moquette:moquette-netty-parser:0.9'
+    compile 'io.moquette:moquette-broker:0.9'
+    compile 'io.moquette:moquette-parser-commons:0.8.1'
+    compile 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.1.1'
+    compile 'org.eclipse.paho:org.eclipse.paho.android.service:1.1.1'
 }
